@@ -1,0 +1,185 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+body {
+	background:radial-gradient(#888, #444);
+	perspective: 2000px;
+	-webkit-user-select:none;
+	user-select:none;
+	cursor:default;
+	overflow:hidden;
+	padding:5vh;
+}
+
+#carta {
+	width:50vh;
+	height:80vh;
+	transform-style: preserve-3d;
+	transition:all 2s 0.25s;
+}
+
+#carta:active {
+	transition:all 1s;
+	transform:rotateY(-180deg);
+}
+
+#contenedor {
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+	transform-style: preserve-3d;
+	animation: entrar 0.5s 1 ease-out;
+}
+
+#contenedor.salir {
+	animation: salir 0.5s 1 ease-in;
+}
+
+@keyframes salir {
+	from {left:50%;}
+	to {left:-25%;}
+}
+
+@keyframes entrar {
+	from {left:125%;}
+	to {left:50%;}
+}
+
+#anverso, #reverso {
+	position:absolute;
+	backface-visibility: hidden;
+	width:100%;
+	height:100%;
+	border-radius:3vh;
+	padding:1em;
+	box-sizing:border-box;
+	border:3vh solid white;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	overflow:hidden;
+}
+			
+#reverso {
+	background: radial-gradient(rgba(0,0,255,0.5), rgba(0,0,128,0.5));
+}
+
+#anverso {
+	background:#ffc;
+}
+
+.reves {
+	transform:rotateY(-180deg);
+}
+			
+.fila {
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+}
+			
+.letra {
+	height:10vh;
+	width:10vh;
+}
+			
+.boton {
+	position:absolute;
+	height:10vh;
+	width:10vh;
+	background:red;
+	color:white;
+	font-size:5vh;
+	bottom:0px;
+	border-radius:100%;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	border:1vh outset tomato;
+	margin:0; padding:0;
+	afont-family:monospace;
+	aletter-spacing:-2vh;
+	text-align:center;
+	font-weight:bolder;
+}
+
+.boton:active{
+	border:1vh inset red;
+	background:darkred;
+}
+
+#facil {
+	left:0;
+}
+
+#normal {
+	left:50%;
+	transform:translate(-50%,0);
+}
+
+#dificil {
+	right:2vh;
+	bottom:2vh;
+}
+
+.item {
+	font-size:7.5vh;
+	margin:4vh 1vh;
+	font-family:"Overlock", sans-serif;
+	color:black;
+	
+	amargin-left:5vh;
+	awhite-space: nowrap
+	line-height: 1;
+	text-align:center;
+}
+
+.respuesta {
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:center;
+}
+
+.deco {
+	aheight:15vh;
+	awidth:30vh;
+	padding:0 3vh;
+	border-radius: 100% 50%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	box-shadow: 0.2vh 0.2vh black;
+}
+
+.estrellas {
+	position:absolute;
+	bottom:-4vh;
+	left:50%;
+	
+	transform:translate(-60%, 0);
+	color: gold;
+	font-size: 8vh;
+	font-weight:bold;
+	text-shadow:0.1vh 0 darkgoldenrod, -0.1vh 0 darkgoldenrod, 0 0.1vh darkgoldenrod, 0 -0.1vh darkgoldenrod, 0.3vh 0.3vh 0.3vh black;
+	letter-spacing:-2vh;
+	z-index:1;
+	
+}
+
+.amarillo {
+	background-color:yellow;
+}
+
+.azul {
+	background-color:skyblue;
+}
+
+.rojo {
+	background-color:red;
+}
